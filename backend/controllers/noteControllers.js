@@ -3,7 +3,7 @@ const Note = require("../models/Note")
 //* Get All Notes..
 const getAllNotes = async (req, res) => {
     try {
-        const notes = await Note.find();
+        const notes = await Note.find().sort({ createdAt: -1 });
         if(!notes) return res.status(404).json({ message: "Failed to fetch Notes..!" });
 
         res.status(200).json(notes);
@@ -57,11 +57,26 @@ const deleteNote = async (req, res) => {
     }
 }
 
+//* Get Note By ID
+const getNoteByID = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const note = await Note.findById(id);
+        if(!note) return res.status(404).json({ message: "Note Not Found..!" });
+
+        res.status(200).json(note);
+    } catch (err) {
+        console.error("Error in getNoteByID Controller..!");
+        res.status(500).json({ message: "Internal Server Error..!" });
+    }
+}
+
 
 module.exports = {
     getAllNotes,
     createNote,
     updateNote,
-    deleteNote
+    deleteNote,
+    getNoteByID
 }
 

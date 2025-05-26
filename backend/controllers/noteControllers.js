@@ -14,7 +14,19 @@ const getAllNotes = async (req, res) => {
 }
 
 //* Create Note..
-const createNote = () => {}
+const createNote = async (req, res) => {
+    try {
+        const { title, content } = req.body;
+        const newNote = await Note.create({ title, content });
+
+        if(!newNote) return res.status(401).json({ message: "Failed to add note..!" });
+
+        res.status(201).json({ message: "Note Created Successfuly.." });
+    } catch (err) {
+        console.error("Error in createNote Controller..!");
+        res.status(500).json({ message: "Internal Server Error..!" });
+    }
+}
 
 //* Update Note..
 const updateNote = () => {}

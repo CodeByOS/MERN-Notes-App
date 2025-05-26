@@ -1,10 +1,11 @@
 const router = require("express").Router();
+const { createNote, deleteNote, updateNote, getAllNotes } = require("../controllers/noteControllers");
 
 
-router.get("/", (req, res) => {
-    console.log("Getting all the notes..");
-})
-
+router.get("/", getAllNotes);
+router.post("/", createNote);
+router.put("/:id", updateNote);
+router.delete("/:id", deleteNote);
 
 
 module.exports = router;

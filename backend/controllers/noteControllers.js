@@ -29,7 +29,19 @@ const createNote = async (req, res) => {
 }
 
 //* Update Note..
-const updateNote = () => {}
+const updateNote = async (req, res) => {
+    try {
+        const { title, content } = req.body;
+        const { id } = req.params;
+        const updatedNote = await Note.findByIdAndUpdate( id , { title, content }, { new: true });
+        if(!updatedNote) return res.status(404).json({ message: "Failed to update the Note..!" });
+
+        res.status(200).json({ message: "Note updated Successfuly.." });
+    } catch (err) {
+        console.error("Error in updateNote Controller..!");
+        res.status(500).json({ message: "Internal Server Error..!" });
+    }
+}
 
 //* Delete Note..
 const deleteNote = () => {}

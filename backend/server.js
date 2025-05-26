@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const connectDB = require("./config/db");
+const notesRoutes = require("./routes/noteRoutes");
 
 const app = express();
 
@@ -11,10 +12,11 @@ app.use(express.json())
 
 //* Define Routes
 
-app.get("/", (req, res) => {
-    res.send("✅ API is running...");
-});
+// app.get("/", (req, res) => {
+//     res.send("✅ API is running...");
+// });
 
+app.use("/api/notes", notesRoutes);
 
 //* Connect DB then start the server
 connectDB()

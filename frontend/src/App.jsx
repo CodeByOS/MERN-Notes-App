@@ -3,6 +3,7 @@ import  HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
 import NoteDetailPage from './pages/NoteDetailPage'
 import NotFoundPage from './pages/NotFoundPage'
+// import { toast } from 'react-hot-toast'
 const App = () => {
   return (
     <div>

@@ -2,13 +2,15 @@ require("dotenv").config();
 const express = require("express");
 const connectDB = require("./config/db");
 const notesRoutes = require("./routes/noteRoutes");
+const rateLimiter = require("./middlewares/rateLimiter");
 
 const app = express();
 
 
 //* Middlewares
 
-app.use(express.json())
+app.use(express.json());
+app.use(rateLimiter);
 
 //* Define Routes
 

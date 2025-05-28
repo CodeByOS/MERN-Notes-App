@@ -7,8 +7,6 @@ import NotFoundPage from './pages/NotFoundPage'
 const App = () => {
   return (
     <div data-theme="dracula">
-
-      <button className="btn btn-accent">Click now</button>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />

@@ -6,7 +6,9 @@ import NotFoundPage from './pages/NotFoundPage'
 // import { toast } from 'react-hot-toast'
 const App = () => {
   return (
-    <div>
+    <div data-theme="dracula">
+
+      <button className="btn btn-accent">Click now</button>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />

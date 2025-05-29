@@ -12,6 +12,11 @@ const app = express();
 app.use(express.json());
 app.use(rateLimiter);
 
+app.use(cors({
+    origin: "http://localhost:5173", // Adjust this to your frontend URL
+    withCredentials: true, // Allow cookies to be sent with requests
+}))
+
 //* Define Routes
 
 // app.get("/", (req, res) => {

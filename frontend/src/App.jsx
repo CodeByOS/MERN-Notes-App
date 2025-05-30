@@ -6,7 +6,7 @@ import NotFoundPage from './pages/NotFoundPage'
 // import { toast } from 'react-hot-toast'
 const App = () => {
   return (
-    <div data-theme="dracula">
+    <div data-theme="business">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />
